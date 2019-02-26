@@ -97,13 +97,13 @@ impl Op {
     pub fn execute(&self, input: &[u8]) -> Vec<u8> {
         match *self {
             Op::Sha1 => {
-                sha1::Hash::hash(&input).to_byte_array().to_vec()
+                sha1::Hash::hash(input).to_byte_array().to_vec()
             }
             Op::Sha256 => {
-                sha256::Hash::hash(&input).to_byte_array().to_vec()
+                sha256::Hash::hash(input).to_byte_array().to_vec()
             }
             Op::Ripemd160 => {
-                ripemd160::Hash::hash(&input).to_byte_array().to_vec()
+                ripemd160::Hash::hash(input).to_byte_array().to_vec()
             }
             Op::Hexlify => {
                 format!("{}", Hexed(input)).into_bytes()
